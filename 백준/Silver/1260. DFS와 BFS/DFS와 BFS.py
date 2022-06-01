@@ -2,9 +2,8 @@ from collections import deque
 
 N, M, V = map(int,input().split())
 graph = {}
-stack = [0]*(N+1)
-queue = [0]*(N+1)
-visited = [0]*(N+1)
+visited1 = [0]*(N+1)
+visited2 = [0]*(N+1)
 
 for i in range(N):
   graph[i+1] = []
@@ -18,21 +17,25 @@ for i in range(N):
   graph[i+1].sort()
 
 def dfs(v):
-  stack[v] = True
+  visited1[v] = True
   print(v,end=' ')
   for i in graph[v]:
-    if not stack[i]:
+    if not visited1[i]:
       dfs(i)
 def bfs(v):
-  queue = deque([v])
-  visited[v] = True
-  while queue:
-    v = queue.popleft()
-    print(v,end=' ')
+  queue = deque([])
+  visited2[v] = True
+  print(v,end=' ')
+  while (0 in visited2) == True:
     for i in graph[v]:
-      if not visited[i]:
+      if not visited2[i]:
+        visited2[i] = True
         queue.append(i)
-        visited[i] = True
+        print(i,end=' ')
+    if(len(queue) == 0):
+      break
+    v = queue.popleft()
+
 dfs(V)
 print("")
 bfs(V)
