@@ -8,13 +8,17 @@ number_list.sort()
 
 for i in range(n):
     tmp = number_list[:i] + number_list[i+1:]
-    left, right = 0, len(tmp) - 1
+    left = 0
+    right = len(tmp) - 1
     while left < right:
-        t = tmp[left] + tmp[right]
-        if t == number_list[i]:
+        sum = tmp[left] + tmp[right]
+        if sum == number_list[i]:
             answer += 1
             break
-        if t < number_list[i]: left += 1 
+        # 합이 클 경우 큰 숫자 감소
+        if sum < number_list[i]: 
+          left += 1 
+        # 합이 작을 경우 작은 숫자 증가
         else: 
           right -= 1 
           
