@@ -8,8 +8,8 @@ n, m = map(int,input().split())
 for i in range(n):
   word = input().rstrip()
   dict[word] = 1
-keywords = set(dict.keys())
 
+keywords = set(dict.keys())
 length = len(dict)
   
 for j in range(m):
