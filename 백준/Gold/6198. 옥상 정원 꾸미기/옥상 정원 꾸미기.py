@@ -7,7 +7,6 @@ stack = []
 
 n = int(input())
 result = 0
-result_count = [0 for _ in range(n)]
 
 for i in range(n):
   arr.append(int(input()))
