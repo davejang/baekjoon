@@ -27,13 +27,13 @@ total = 0
 for i in range(n):
     for j in range(n):
         if data[i][j] == 0:
-            edges.append((0, i+1, j+1))
+            edges.append((0, i, j))
         else:
             if ord('a') <= ord(data[i][j]) <= ord('z'):
-                edges.append((ord(data[i][j]) - ord('a') + 1, i+1, j+1))
+                edges.append((ord(data[i][j]) - ord('a') + 1, i, j))
                 total += (ord(data[i][j]) - ord('a') + 1)
             elif ord('A') <= ord(data[i][j]) <= ord('Z'):
-                edges.append((ord(data[i][j]) - ord('A') + 27, i+1, j+1))
+                edges.append((ord(data[i][j]) - ord('A') + 27, i, j))
                 total += (ord(data[i][j]) - ord('A') + 27)
 
 edges.sort()
@@ -46,10 +46,10 @@ for g in edges:
         total -= cost
     else:
         continue
-
+    
 result = True
-for i in range(1, n+1):
-    if find_parents(i) != 1:
+for i in range(1, n):
+    if find_parents(i) != 0:
         result = False
         
 if result:
