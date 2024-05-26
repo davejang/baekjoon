@@ -18,7 +18,7 @@ def union(a,b):
         parents[a] = b
 
 n = int(input())
-parents = [i for i in range(n+1)]
+parents = [i for i in range(n)]
 stars = []
 edges = []
 result = 0
