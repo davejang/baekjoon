@@ -20,7 +20,6 @@ n = int(input())
 parents = [i for i in range(n+1)]
 edges = []
 result = 0
-count = 0
 
 for i in range(1,n+1):
     w = int(input())
@@ -36,9 +35,6 @@ edges.sort()
 for cost, a, b in edges:
     if find_parent(a) != find_parent(b):
         union(a,b)
-        count +=1
         result += cost
-        # if count >= n:
-        #     break
     
 print(result)
