@@ -1,4 +1,5 @@
 import sys
+sys.setrecursionlimit(10000)
 
 INF = int(1e9)
 
